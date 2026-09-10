@@ -66,7 +66,7 @@ test-period peaks and troughs far more closely than plain AR or non-seasonal ARI
 
 | AR Forecast | ARIMA Forecast | SARIMA Forecast |
 |---|---|---|
-| ![AR forecast](images/ar_model_forecast.png) | ![ARIMA forecast](images/arima_model_forecast.png) | ![SARIMA forecast](images/sarima_model_forecast.png) |
+| ![AR forecast](../images/ar_model_forecast.png) | ![ARIMA forecast](images/arima_model_forecast.png) | ![SARIMA forecast](images/sarima_model_forecast.png) |
 
 ## Tech Stack
 
