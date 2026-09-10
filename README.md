@@ -35,7 +35,7 @@ for modeling.
 
 42 months of training data, remaining months held out for testing.
 
-![Train/test split](images/train_test_split.png)
+![Train/test split](images/Train_test_split.png)
 
 ### Making the Series Stationary
 
@@ -43,12 +43,12 @@ The raw monthly sales series fails the ADF test (p ≈ 0.199), so it's transform
 with a log (Box-Cox, λ=0) transform followed by first-order differencing, which
 passes the ADF test (p ≈ 7.45e-06).
 
-![Box-Cox and differencing](images/boxcox_and_differencing.png)
+![Box-Cox and differencing](images/Boxcox_and_differencing.png)
 
 Seasonal decomposition confirms a strong recurring yearly pattern in the original
 series, which the transformation flattens out:
 
-![Seasonal decomposition](images/seasonal_decomposition.png)
+![Seasonal decomposition](images/Seasonal_decomposition.png)
 
 ## Results
 
@@ -58,7 +58,7 @@ series, which the transformation flattens out:
 | ARIMA | 24,353.77 |
 | **SARIMA** | **11,178.61** |
 
-![Model comparison](images/model_comparison_rmse.png)
+![Model comparison](images/Model_comparison_rmse.png)
 
 **SARIMA performed best.** It's the only one of the three models that explicitly
 models seasonality, and the data has a clear yearly cycle — so it tracks the
@@ -66,7 +66,7 @@ test-period peaks and troughs far more closely than plain AR or non-seasonal ARI
 
 | AR Forecast | ARIMA Forecast | SARIMA Forecast |
 |---|---|---|
-| ![AR forecast](images/ar_model_forecast.png) | ![ARIMA forecast](images/arima_model_forecast.png) | ![SARIMA forecast](images/sarima_model_forecast.png) |
+| ![AR forecast](images/Ar_model_forecast.png) | ![ARIMA forecast](images/Arima_model_forecast.png) | ![SARIMA forecast](images/Sarima_model_forecast.png) |
 
 ## Tech Stack
 
@@ -76,24 +76,27 @@ test-period peaks and troughs far more closely than plain AR or non-seasonal ARI
 - Matplotlib, Seaborn (visualization)
 
 ## Project Structure
-
-```
 .
-├── time_series_sales_forecasting.ipynb   # main notebook
-├── images/                               # saved plots used in this README
+├── data/
+│ └── Superstore_Data.csv
+├── notebook/
+│ └── time_series_sales_forecasting.ipynb
+├── images/ # saved plots used in this README
 ├── requirements.txt
 ├── .gitignore
 └── README.md
-```
 
 ## How to Run
 
-1. Clone the repo and place `Superstore_Data.csv` in the project root
+1. Clone the repo
 2. Install dependencies:
-   ```bash
+```bash
    pip install -r requirements.txt
-   ```
-3. Open `time_series_sales_forecasting.ipynb` and run all cells top-to-bottom
+```
+3. Open `notebook/time_series_sales_forecasting.ipynb` and run all cells top-to-bottom
+   (note: the notebook reads `Superstore_Data.csv` from its own folder by default —
+   since your data lives in `data/`, update that line to
+   `pd.read_csv('../data/Superstore_Data.csv')`, or copy the CSV into `notebook/`)
 
 ## Next Steps
 
